@@ -27,26 +27,26 @@ export function SigninScreen() {
     navigation.navigate("SignUp");
   };
   const pressedSignIn = (email: string, password: string) => {
-    // firebase
-    //   .auth()
-    //   .signInWithEmailAndPassword(email, password)
-    //   .then((user) => {
-    //     // userがnullかもしれない対策(firebaseモジュールの仕様？)
-    //     if (!user) throw new Error("user is empty");
-    //     if (!user.user) throw new Error("user.user is empty");
-    //     if (!user.user.email) throw new Error("user.user.email is empty");
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then((user) => {
+        // userがnullかもしれない対策(firebaseモジュールの仕様？)
+        if (!user) throw new Error("user is empty");
+        if (!user.user) throw new Error("user.user is empty");
+        if (!user.user.email) throw new Error("user.user.email is empty");
 
-    //     Alert.alert("サインイン！", "正常にサインインできました。");
-    //     const currentUser: signedInUser = {
-    //       email: user.user.email,
-    //       uid: user.user.uid,
-    //     };
-    //     toMain(currentUser);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     Alert.alert("エラー！", error);
-    //   });
+        Alert.alert("サインイン！", "正常にサインインできました。");
+        const currentUser: signedInUser = {
+          email: user.user.email,
+          uid: user.user.uid,
+        };
+        toMain(currentUser);
+      })
+      .catch((error) => {
+        console.log(error);
+        Alert.alert("エラー！", error);
+      });
   };
   //Submitが押されたときにSign Up(登録処理)する関数
   // const pressedSubmit = (email: string, password: string, name: string) => {

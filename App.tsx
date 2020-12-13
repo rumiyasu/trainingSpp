@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 //navigation
 import { NavigationContainer } from "@react-navigation/native";
@@ -11,7 +11,7 @@ import "./src/Fire";
 import { logEvent } from './src/@types/firebase';
 
 const Stack = createStackNavigator<RootStackParamList>();
-const [count, setCount] = useState(0);
+
 
 export default function App() {
 //   useEffect(() => {

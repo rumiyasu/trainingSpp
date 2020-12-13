@@ -30,7 +30,7 @@ type Props = {
 export function MainScreen(props : Props) {
   const { navigation } = props;
   const toHowto1 = () => {
-    navigation.push("Howto1");
+    navigation.push("Howto1",{howto1: "arm"});
   };
 
   const currentUser = props.route.params.user;

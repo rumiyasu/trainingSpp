@@ -7,11 +7,9 @@ type RootStackParamList = {
   Main: { user: signedInUser }; //ここを書き換え
   SignIn: undefined;
   SignUp: undefined;
-  Howto1: { howto1: howto1 };
+  Howto1: { howto1: string };
   part: { part: part };
   Howto3: undifined;
   Howto4: undifined;
   Howto5: undifined;
-  SignIn: undefined;
-  SignUp: undefined;
 };
