@@ -1,21 +1,45 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+
+//navigation
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import "react-native-gesture-handler";
+//Screens.tsでまとめたものをimport
+import { HowtoScreen1, MainScreen, SigninScreen, SignupScreen } from "./src/Screens/Screens";
+import "./src/Fire"; 
+import { logEvent } from './src/@types/firebase';
+
+const Stack = createStackNavigator<RootStackParamList>();
+
 
 export default function App() {
+//   useEffect(() => {
+//     logEvent('sample_event');
+//   }, []);
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="SignIn">
+        <Stack.Screen name="Main" component={MainScreen} />
+        <Stack.Screen
+          name="SignIn"
+          component={SigninScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SignUp"
+          component={SignupScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Howto1"
+          component={HowtoScreen1}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
